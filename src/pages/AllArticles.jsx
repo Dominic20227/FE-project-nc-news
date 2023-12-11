@@ -24,7 +24,7 @@ function AllArticles() {
 
       <ul>
         {allArticles.map((article) => {
-          return <ArticleOverview article={article} />;
+          return <ArticleOverview article={article} key={article.article_id} />;
         })}
       </ul>
     </div>

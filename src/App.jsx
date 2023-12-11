@@ -4,6 +4,7 @@ import Homepage from "./pages/Homepage";
 import ArticlesByTopic from "./pages/ArticlesByTopic";
 import SingleArticle from "./pages/SingleArticle";
 import AllArticles from "./pages/AllArticles";
+import "./app.css";
 
 function App() {
   return (
