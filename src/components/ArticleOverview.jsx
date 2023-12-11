@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function ArticleOverview({ article }) {
   return (
-    <li className="article-card">
+    <li className="article-overview-cards">
       <h3>{article.title}</h3>
       <p>Topic: {article.topic}</p>
       <p>Author: {article.author}</p>
