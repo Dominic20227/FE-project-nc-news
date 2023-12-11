@@ -21,14 +21,14 @@ function SingleArticle() {
     return <p> Loading</p>;
   }
   return (
-    <div>
+    <article className="single-article-card">
       <Navbar />
       <h2>Single Article</h2>
 
       <ul>
         <ArticleDetail singleArticle={singleArticle} />
       </ul>
-    </div>
+    </article>
   );
 }
 

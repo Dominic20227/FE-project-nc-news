@@ -1,3 +1,15 @@
-.article-card {
-  border: black 1px solid;
+.article-overview-cards {
+  border: blue 1px solid;
+}
+
+.single-article-card {
+  border: orangered 1px solid;
+}
+
+.comment-section {
+  border: green 1px solid;
+}
+
+.comment-card {
+  border: yellow 1px solid;
 }
