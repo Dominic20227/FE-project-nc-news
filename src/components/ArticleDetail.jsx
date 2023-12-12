@@ -6,6 +6,7 @@ import { getCommentsByArticleId, upVoteArticle } from "../api/api";
 function ArticleDetail({ singleArticle, setSingleArticle }) {
   const [comments, setComments] = useState("");
   const [hasLoaded, setHasLoaded] = useState(false);
+  const [err, setErr] = useState(null);
   const date = String(dayjs(singleArticle.created_at).$d);
 
   useEffect(() => {
@@ -17,11 +18,17 @@ function ArticleDetail({ singleArticle, setSingleArticle }) {
   }, []);
 
   function handleUpvote(articleID) {
-    setHasLoaded(false);
-    upVoteArticle(articleID).then((updatedArticle) => {
-      setSingleArticle(updatedArticle);
-      setHasLoaded(true);
-    });
+    setSingleArticle({ ...singleArticle, votes: singleArticle.votes + 1 });
+
+    upVoteArticle(articleID)
+      .then((updatedArticle) => {
+        setSingleArticle(updatedArticle);
+      })
+      .catch((err) => {
+        if (err) {
+          setErr("Something went wrong");
+        }
+      });
   }
 
   if (!hasLoaded) {
@@ -37,6 +44,7 @@ function ArticleDetail({ singleArticle, setSingleArticle }) {
           <p>{singleArticle.body}</p>
           <p> {singleArticle.author}</p>
           <p> {date}</p>
+          {err ? <p>{err}</p> : <p> </p>}
           <p>
             Votes: {singleArticle.votes}
             <button onClick={() => handleUpvote(singleArticle.article_id)}>
