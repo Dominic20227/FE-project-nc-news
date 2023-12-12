@@ -29,7 +29,7 @@ function ArticleDetail({ singleArticle, setSingleArticle }) {
           setErr("Something went wrong");
           setSingleArticle({
             ...singleArticle,
-            votes: singleArticle.votes - 1,
+            votes: singleArticle.votes,
           });
         }
       });
