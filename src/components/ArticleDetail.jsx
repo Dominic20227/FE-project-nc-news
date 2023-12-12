@@ -70,7 +70,7 @@ function ArticleDetail({ singleArticle, setSingleArticle }) {
       </section>
 
       <section>
-        <Comments comments={comments} />
+        <Comments comments={comments} setComments={setComments} />
       </section>
     </article>
   );

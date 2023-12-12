@@ -38,3 +38,9 @@ export const postCommentByArticleId = (articleId, comment) => {
     })
     .then(({ data }) => data.comments);
 };
+
+export const deleteCommentByCommentId = (commentId) => {
+  return nc_news_api.delete(`/comments/${commentId}`).then((res) => {
+    return res;
+  });
+};
