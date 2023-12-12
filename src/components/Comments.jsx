@@ -1,18 +1,18 @@
 import dayjs from "dayjs";
 import { deleteCommentByCommentId, getCommentsByArticleId } from "../api/api";
 
-function Comments({ comments, setComments }) {
+function Comments({ comments, setComments, setErr }) {
   function handleDeleteButton(commentId, articleId) {
-    const userInput = confirm(
-      "Are you sure you want to delete this comment?  "
-    );
-    if (userInput) {
-      return deleteCommentByCommentId(commentId)
-        .then((res) => {
-          return getCommentsByArticleId(articleId);
-        })
-        .then((updatedComments) => setComments(updatedComments));
-    }
+    return deleteCommentByCommentId(commentId)
+      .then((res) => {
+        return getCommentsByArticleId(articleId);
+      })
+      .then((updatedComments) => setComments(updatedComments))
+      .catch((err) => {
+        setErr(
+          "There has been a problem, please refresh the page and try again"
+        );
+      });
   }
 
   return (
