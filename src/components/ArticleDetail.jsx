@@ -27,6 +27,10 @@ function ArticleDetail({ singleArticle, setSingleArticle }) {
       .catch((err) => {
         if (err) {
           setErr("Something went wrong");
+          setSingleArticle({
+            ...singleArticle,
+            votes: singleArticle.votes - 1,
+          });
         }
       });
   }
