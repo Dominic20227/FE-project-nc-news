@@ -1,11 +1,12 @@
 import dayjs from "dayjs";
 import Comments from "./Comments";
 import { useState, useEffect } from "react";
-import { getCommentsByArticleId } from "../api/api";
+import { getCommentsByArticleId, upVoteArticle } from "../api/api";
 
-function ArticleDetail({ singleArticle }) {
+function ArticleDetail({ singleArticle, setSingleArticle }) {
   const [comments, setComments] = useState("");
   const [hasLoaded, setHasLoaded] = useState(false);
+  const [err, setErr] = useState(null);
   const date = String(dayjs(singleArticle.created_at).$d);
 
   useEffect(() => {
@@ -16,8 +17,26 @@ function ArticleDetail({ singleArticle }) {
     });
   }, []);
 
+  function handleUpvote(articleID) {
+    setSingleArticle({ ...singleArticle, votes: singleArticle.votes + 1 });
+
+    upVoteArticle(articleID)
+      .then((updatedArticle) => {
+        setSingleArticle(updatedArticle);
+      })
+      .catch((err) => {
+        if (err) {
+          setErr("Something went wrong");
+          setSingleArticle({
+            ...singleArticle,
+            votes: singleArticle.votes,
+          });
+        }
+      });
+  }
+
   if (!hasLoaded) {
-    return <p> Loading</p>;
+    return <p>Please wait </p>;
   }
 
   return (
@@ -29,7 +48,13 @@ function ArticleDetail({ singleArticle }) {
           <p>{singleArticle.body}</p>
           <p> {singleArticle.author}</p>
           <p> {date}</p>
-          <p>Votes: {singleArticle.votes}</p>
+          {err ? <p>{err}</p> : <p> </p>}
+          <p>
+            Votes: {singleArticle.votes}
+            <button onClick={() => handleUpvote(singleArticle.article_id)}>
+              Upvote
+            </button>
+          </p>
         </li>
       </section>
 

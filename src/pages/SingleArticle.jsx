@@ -26,7 +26,10 @@ function SingleArticle() {
       <h2>Single Article</h2>
 
       <ul>
-        <ArticleDetail singleArticle={singleArticle} />
+        <ArticleDetail
+          singleArticle={singleArticle}
+          setSingleArticle={setSingleArticle}
+        />
       </ul>
     </article>
   );
