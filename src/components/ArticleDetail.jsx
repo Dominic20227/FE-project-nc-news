@@ -61,15 +61,16 @@ function ArticleDetail({ singleArticle, setSingleArticle }) {
       </section>
 
       <section>
-        <Comments comments={comments} />
-      </section>
-      <section>
         <AddCommentForm
           articleId={singleArticle.article_id}
           comments={comments}
           setComments={setComments}
           setErr={setErr}
         />
+      </section>
+
+      <section>
+        <Comments comments={comments} />
       </section>
     </article>
   );

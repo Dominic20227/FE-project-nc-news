@@ -20,21 +20,18 @@ function AddCommentForm({ articleId, comments, setComments, setErr }) {
       ]);
       setBtnDisabled(true);
 
-      setTimeout(() => {
-        postCommentByArticleId(articleId, comment)
-          .then((newComment) => {
-            setComments([...comments, newComment[0]]);
-            setComment("");
-            setBtnDisabled(false);
-          })
-          .catch((err) => {
-            console.log(comments);
-
-            setComments([...comments]);
-            setErr("Something went wrong");
-            setComment("");
-          });
-      }, 5000);
+      postCommentByArticleId(articleId, comment)
+        .then((newComment) => {
+          setComments([...comments, newComment[0]]);
+          setComment("");
+          setBtnDisabled(false);
+        })
+        .catch((err) => {
+          setComments([...comments]);
+          setErr("Something has went wrong, please try refreshing the page");
+          setComment("");
+          setBtnDisabled(false);
+        });
     } else {
       setErr("Comment field can not be blank");
     }
@@ -47,12 +44,14 @@ function AddCommentForm({ articleId, comments, setComments, setErr }) {
         handleSubmit(articleId, comment);
       }}
     >
-      <input
-        type="text"
+      <textarea
+        rows={2}
+        cols={150}
         placeholder="Insert your comment here"
         onChange={(e) => setComment(e.target.value)}
         value={comment}
       />
+
       <button disabled={btnDisabled}>Post</button>
     </form>
   );
