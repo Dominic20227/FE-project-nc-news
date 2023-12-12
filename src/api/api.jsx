@@ -29,3 +29,12 @@ export const upVoteArticle = (articleId) => {
       return data.updatedArticle;
     });
 };
+
+export const postCommentByArticleId = (articleId, comment) => {
+  return nc_news_api
+    .post(`/articles/${articleId}/comments`, {
+      username: "jessjelly",
+      body: comment,
+    })
+    .then(({ data }) => data.comments);
+};

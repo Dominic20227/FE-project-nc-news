@@ -2,11 +2,13 @@ import dayjs from "dayjs";
 import Comments from "./Comments";
 import { useState, useEffect } from "react";
 import { getCommentsByArticleId, upVoteArticle } from "../api/api";
+import AddCommentForm from "./AddCommentForm";
 
 function ArticleDetail({ singleArticle, setSingleArticle }) {
   const [comments, setComments] = useState("");
   const [hasLoaded, setHasLoaded] = useState(false);
   const [err, setErr] = useState(null);
+
   const date = String(dayjs(singleArticle.created_at).$d);
 
   useEffect(() => {
@@ -56,6 +58,15 @@ function ArticleDetail({ singleArticle, setSingleArticle }) {
             </button>
           </p>
         </li>
+      </section>
+
+      <section>
+        <AddCommentForm
+          articleId={singleArticle.article_id}
+          comments={comments}
+          setComments={setComments}
+          setErr={setErr}
+        />
       </section>
 
       <section>

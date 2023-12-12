@@ -6,7 +6,12 @@ function Comments({ comments }) {
       {comments.map((comment) => {
         const date = String(dayjs(comment.created_at).$d);
         return (
-          <li className="comment-card" key={comment.comment_id}>
+          <li
+            className={`comment-card ${
+              comment.comment_id === "newComment" ? "newComment" : ""
+            }`}
+            key={comment.comment_id}
+          >
             <p> {comment.body}</p>
             <p> {date}</p>
           </li>

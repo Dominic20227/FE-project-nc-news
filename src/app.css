@@ -13,3 +13,7 @@
 .comment-card {
   border: yellow 1px solid;
 }
+
+.newComment {
+  background-color: green;
+}
