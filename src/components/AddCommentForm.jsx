@@ -22,7 +22,7 @@ function AddCommentForm({ articleId, comments, setComments, setErr }) {
 
       postCommentByArticleId(articleId, comment)
         .then((newComment) => {
-          setComments([...comments, newComment[0]]);
+          setComments([newComment[0], ...comments]);
           setComment("");
           setBtnDisabled(false);
         })
