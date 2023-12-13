@@ -6,7 +6,7 @@ function ArticleOverview({ article }) {
       <h3>{article.title}</h3>
       <p>Topic: {article.topic}</p>
       <p>Author: {article.author}</p>
-
+      <p>Comments: {article.comment_count}</p>
       <p>Votes: {article.votes}</p>
       <p>{String(dayjs(article.created_at).$d)}</p>
       <p>

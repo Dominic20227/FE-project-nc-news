@@ -8,6 +8,9 @@ function ArticleDetail({ singleArticle, setSingleArticle }) {
   const [comments, setComments] = useState("");
   const [hasLoaded, setHasLoaded] = useState(false);
   const [err, setErr] = useState(null);
+  const [dateFilter, setDateFilter] = useState("dec");
+  const [votesFilter, setVotesFilter] = useState("dec");
+  const [CommentsFilter, setCommentsFilter] = useState("dec");
 
   const date = String(dayjs(singleArticle.created_at).$d);
 
