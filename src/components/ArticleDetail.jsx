@@ -45,20 +45,18 @@ function ArticleDetail({ singleArticle, setSingleArticle }) {
     <article className="article-card">
       <section>
         <h3>Article detail</h3>
-        <li>
-          <h4>{singleArticle.title}</h4>
-          <p>{singleArticle.body}</p>
-          <p> {singleArticle.author}</p>
-          <p> {date}</p>
-          {err ? <p>{err}</p> : <p> </p>}
 
-          <p>
-            Votes: {singleArticle.votes}
-            <button onClick={() => handleUpvote(singleArticle.article_id)}>
-              Upvote
-            </button>
-          </p>
-        </li>
+        <h4>{singleArticle.title}</h4>
+        <p>{singleArticle.body}</p>
+        <p> {singleArticle.author}</p>
+        <p> {date}</p>
+        {err ? <p>{err}</p> : <p> </p>}
+        <p>
+          Votes: {singleArticle.votes}
+          <button onClick={() => handleUpvote(singleArticle.article_id)}>
+            Upvote
+          </button>
+        </p>
       </section>
 
       <section>
@@ -71,11 +69,7 @@ function ArticleDetail({ singleArticle, setSingleArticle }) {
       </section>
 
       <section>
-        <Comments
-          comments={comments}
-          setComments={setComments}
-          setErr={setErr}
-        />
+        <Comments comments={comments} />
       </section>
     </article>
   );
