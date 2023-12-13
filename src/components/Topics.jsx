@@ -21,10 +21,9 @@ function Topics() {
       {topics.map((topic) => {
         return (
           <li key={topic.slug}>
-            {" "}
             <p>{topic.slug}</p>
             <p> {topic.description}</p>
-            <Link to={`/articles/${topic.slug}`}> See more!</Link>
+            <Link to={`/articles/${topic.slug}`}> Read more!</Link>
           </li>
         );
       })}

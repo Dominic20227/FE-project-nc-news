@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage";
-import ArticlesByTopic from "./pages/ArticlesByTopic";
+
 import SingleArticle from "./pages/SingleArticle";
-import AllArticles from "./pages/AllArticles";
+import Articles from "./pages/Articles";
 import "./app.css";
 
 function App() {
@@ -11,8 +11,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/allArticles" element={<AllArticles />} />
-        <Route path="/articles/:topic" element={<ArticlesByTopic />} />
+        <Route path="/allArticles" element={<Articles />} />
+        <Route path="/articles/:topic" element={<Articles />} />
         <Route path="/singlearticle/:article_id" element={<SingleArticle />} />
       </Routes>
     </BrowserRouter>
