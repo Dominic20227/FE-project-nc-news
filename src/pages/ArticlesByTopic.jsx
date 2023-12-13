@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import { Link, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getArticlesByTopic } from "../api/api";
+import dayjs from "dayjs";
 
 function ArticlesByTopic() {
   const [topics, setTopics] = useState("");
@@ -34,6 +35,7 @@ function ArticlesByTopic() {
               <h4>{topic.topic}</h4>
               <h5>{topic.title}</h5>
               <p>{topic.author}</p>
+              <p>{String(dayjs(topic.created_at).$d)}</p>
               <Link to={`/singlearticle/${topic.article_id}`}> Read more </Link>
             </li>
           );
