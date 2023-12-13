@@ -51,6 +51,7 @@ function ArticleDetail({ singleArticle, setSingleArticle }) {
           <p> {singleArticle.author}</p>
           <p> {date}</p>
           {err ? <p>{err}</p> : <p> </p>}
+
           <p>
             Votes: {singleArticle.votes}
             <button onClick={() => handleUpvote(singleArticle.article_id)}>
@@ -70,7 +71,11 @@ function ArticleDetail({ singleArticle, setSingleArticle }) {
       </section>
 
       <section>
-        <Comments comments={comments} />
+        <Comments
+          comments={comments}
+          setComments={setComments}
+          setErr={setErr}
+        />
       </section>
     </article>
   );
