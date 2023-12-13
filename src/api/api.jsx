@@ -38,3 +38,21 @@ export const postCommentByArticleId = (articleId, comment) => {
     })
     .then(({ data }) => data.comments);
 };
+
+export const deleteCommentByCommentId = (commentId) => {
+  return nc_news_api.delete(`/comments/${commentId}`).then((res) => {
+    return res;
+  });
+};
+
+export const getTopics = () => {
+  return nc_news_api.get("/topics").then(({ data }) => {
+    return data;
+  });
+};
+
+export const getArticlesByTopic = (topic) => {
+  return nc_news_api.get(`/articles?topic=cooking`).then(({ data }) => {
+    return data.articles;
+  });
+};
