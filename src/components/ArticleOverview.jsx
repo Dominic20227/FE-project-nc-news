@@ -6,8 +6,9 @@ function ArticleOverview({ article }) {
       <h3>{article.title}</h3>
       <p>Topic: {article.topic}</p>
       <p>Author: {article.author}</p>
-      <p>{String(dayjs(article.created_at).$d)}</p>
+
       <p>Votes: {article.votes}</p>
+      <p>{String(dayjs(article.created_at).$d)}</p>
       <p>
         <Link to={`/singleArticle/${article.article_id}`}>Read more</Link>
       </p>
