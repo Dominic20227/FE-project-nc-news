@@ -14,10 +14,6 @@ function Comments({ comments, setComments, setErr }) {
 
     return deleteCommentByCommentId(commentId)
       .then((res) => {
-        return getCommentsByArticleId(articleId);
-      })
-      .then((updatedComments) => {
-        setComments(updatedComments);
         setBtnDisabled(false);
         setCommentIdMsg("");
       })
