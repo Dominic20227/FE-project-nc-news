@@ -5,20 +5,16 @@ import { useState, useEffect } from "react";
 function Comments({ comments, setComments, setErr }) {
   const [btnDisabled, setBtnDisabled] = useState(false);
   const [commentIdErr, setCommentIdErr] = useState(null); //err will show up at specific comment box
-  const [commentIdMsg, setCommentIdMsg] = useState(null); //msg will show up at specific comment box
 
   function handleDeleteButton(commentId, articleId) {
-    setCommentIdMsg(commentId); //msg will show up at specific comment box
     setComments(comments.filter((val) => val.comment_id !== commentId)); //optimistic rendering
     setBtnDisabled(true);
 
     return deleteCommentByCommentId(commentId)
       .then((res) => {
         setBtnDisabled(false);
-        setCommentIdMsg("");
       })
       .catch((err) => {
-        setCommentIdMsg("");
         setCommentIdErr(commentId);
 
         setComments(comments);
@@ -41,12 +37,6 @@ function Comments({ comments, setComments, setErr }) {
               <p>
                 There has been a problem. Please refresh the page and try again
               </p>
-            ) : (
-              ""
-            )}
-
-            {comment.comment_id === commentIdMsg ? ( //msg will show up at specific comment box
-              <p>Deleting your cooment. Please wait....</p>
             ) : (
               ""
             )}
