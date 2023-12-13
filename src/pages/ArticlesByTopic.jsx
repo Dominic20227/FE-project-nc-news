@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getArticlesByTopic } from "../api/api";
 import dayjs from "dayjs";
@@ -7,12 +7,11 @@ import dayjs from "dayjs";
 function ArticlesByTopic() {
   const [topics, setTopics] = useState("");
   const [hasLoaded, setHasLoaded] = useState(false);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const { topic } = useParams();
 
-  const topicQuery = searchParams.get("topic");
-
+  console.log(topic);
   useEffect(() => {
-    getArticlesByTopic(topicQuery).then((res) => {
+    getArticlesByTopic(topic).then((res) => {
       console.log(res);
       setTopics(res);
       setHasLoaded(true);

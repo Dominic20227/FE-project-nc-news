@@ -52,7 +52,7 @@ export const getTopics = () => {
 };
 
 export const getArticlesByTopic = (topic) => {
-  return nc_news_api.get(`/articles?topic=cooking`).then(({ data }) => {
+  return nc_news_api.get(`/articles?topic=${topic}`).then(({ data }) => {
     return data.articles;
   });
 };

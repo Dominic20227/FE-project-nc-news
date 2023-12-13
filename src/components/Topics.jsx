@@ -24,7 +24,7 @@ function Topics() {
             {" "}
             <p>{topic.slug}</p>
             <p> {topic.description}</p>
-            <Link to={`/articlesByTopic?topic=${topic.slug}`}> See more!</Link>
+            <Link to={`/articles/${topic.slug}`}> See more!</Link>
           </li>
         );
       })}
