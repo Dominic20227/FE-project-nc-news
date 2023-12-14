@@ -23,41 +23,45 @@ function Comments({ comments, setComments, setErr }) {
   }
 
   return (
-    <ul className="comment-section">
+    <ul className="space-y-4">
       {comments.map((comment) => {
         const date = String(dayjs(comment.created_at).$d);
         return (
           <li
-            className={`comment-card ${
-              comment.comment_id === "newComment" ? "newComment" : ""
+            className={`p-4 border border-gray-300 rounded-lg ${
+              comment.comment_id === "newComment" ? "bg-blue-100" : "bg-white"
             }`}
             key={comment.comment_id}
           >
             {comment.comment_id === commentIdErr ? ( //err will show up at specific comment box
-              <p>
+              <p className="text-red-500">
                 There has been a problem. Please refresh the page and try again
               </p>
             ) : (
               ""
             )}
 
-            <p> {comment.body}</p>
-            <p>
-              {comment.author}
-              {comment.author === "jessjelly" ? (
-                <button
-                  disabled={btnDisabled}
-                  onClick={() =>
-                    handleDeleteButton(comment.comment_id, comment.article_id)
-                  }
-                >
-                  ❌
-                </button>
-              ) : (
-                ""
-              )}
-            </p>
-            <p> {date}</p>
+            <p className="mb-2"> {comment.body}</p>
+
+            <div className="flex justify-between items-center">
+              <p>
+                {comment.author}
+                {comment.author === "jessjelly" ? (
+                  <button
+                    disabled={btnDisabled}
+                    onClick={() =>
+                      handleDeleteButton(comment.comment_id, comment.article_id)
+                    }
+                    className="text-red-500 hover:text-red-700 disabled:opacity-50"
+                  >
+                    ❌
+                  </button>
+                ) : (
+                  ""
+                )}
+              </p>
+              <p> {date}</p>
+            </div>
           </li>
         );
       })}

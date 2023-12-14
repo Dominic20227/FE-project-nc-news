@@ -1,19 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* HOME PAGE */
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+nav {
+  margin-bottom: 50px;
+}
+nav a {
+  margin-right: 20px;
+}
+
+li:first-child {
+  margin-top: 60px;
+}
+li {
+  margin-bottom: 50px;
+}
+
+/* ALL ARTICLES */
+.articles {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
 .article-overview-cards {
-  border: blue 1px solid;
-}
-
-.single-article-card {
-  border: orangered 1px solid;
-}
-
-.comment-section {
-  border: green 1px solid;
-}
-
-.comment-card {
-  border: yellow 1px solid;
-}
-
-.newComment {
-  background-color: green;
+  border: 1px #f7f7f7 solid;
 }
