@@ -23,22 +23,18 @@ function Articles() {
   }, []);
 
   if (!hasLoaded) {
-    return <p>Loading</p>;
+    return <p className="text-center text-xl mt-5">Loading</p>;
   }
 
   return (
-    <div>
+    <div className="container mx-auto p-4">
       <Navbar />
-      <h2>Articles </h2>
+      <h2 className="text-4xl font-bold text-center my-6">Articles </h2>
 
-      <ul>
-        <ul>
-          {articles.map((article) => {
-            return (
-              <ArticleOverview article={article} key={article.article_id} />
-            );
-          })}
-        </ul>
+      <ul className="space-y-4">
+        {articles.map((article) => {
+          return <ArticleOverview article={article} key={article.article_id} />;
+        })}
       </ul>
     </div>
   );

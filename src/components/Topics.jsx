@@ -14,16 +14,25 @@ function Topics() {
   }, []);
 
   if (!hasLoaded) {
-    return <p>Loading</p>;
+    return <p className="text-center text-xl">Loading</p>;
   }
   return (
-    <ul>
+    <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full p-4">
       {topics.map((topic) => {
         return (
-          <li key={topic.slug}>
-            <p>{topic.slug}</p>
-            <p> {topic.description}</p>
-            <Link to={`/articles/${topic.slug}`}> Read more!</Link>
+          <li
+            className="text-center shadow-lg my-4 mx-2 p-6 h-[300px] hover:shadow-xl transition-shadow duration-300 "
+            key={topic.slug}
+          >
+            <p className="text-3xl font-semibold">{topic.slug}</p>
+            <p className="text-xl mb-4"> {topic.description}</p>
+            <Link
+              className="text-lg text-blue-600 hover:text-blue-800 "
+              to={`/articles/${topic.slug}`}
+            >
+              {" "}
+              Read more!
+            </Link>
           </li>
         );
       })}

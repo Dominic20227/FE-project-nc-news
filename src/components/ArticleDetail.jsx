@@ -42,24 +42,27 @@ function ArticleDetail({ singleArticle, setSingleArticle }) {
   }
 
   return (
-    <article className="article-card">
+    <article className="p-6 bg-white shadow-lg rounded-lg">
       <section>
         <h3>Article detail</h3>
 
-        <h4>{singleArticle.title}</h4>
-        <p>{singleArticle.body}</p>
-        <p> {singleArticle.author}</p>
-        <p> {date}</p>
-        {err ? <p>{err}</p> : <p> </p>}
-        <p>
-          Votes: {singleArticle.votes}
-          <button onClick={() => handleUpvote(singleArticle.article_id)}>
-            Upvote
-          </button>
-        </p>
+        <h4 className="text-xl font-semibold mb-1">{singleArticle.title}</h4>
+        <p className="mb-3">{singleArticle.body}</p>
+        <p className="italic mb-1"> {singleArticle.author}</p>
+        <p className="mb-3"> {date}</p>
+        {err ? <p className="text-red-500">{err}</p> : <p> </p>}
+
+        <div className="flex items-center gap-2">
+          <p>
+            Votes: {singleArticle.votes}
+            <button onClick={() => handleUpvote(singleArticle.article_id)}>
+              Upvote
+            </button>
+          </p>
+        </div>
       </section>
 
-      <section>
+      <section className="mb-6">
         <AddCommentForm
           articleId={singleArticle.article_id}
           comments={comments}

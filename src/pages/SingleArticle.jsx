@@ -21,9 +21,9 @@ function SingleArticle() {
     return <p> Loading</p>;
   }
   return (
-    <article className="single-article-card">
+    <article className="container mx-auto p-4">
       <Navbar />
-      <h2>Single Article</h2>
+      <h2 className="text-4xl font-bold text-center my-6">Single Article</h2>
 
       <ul>
         <ArticleDetail

@@ -1,10 +1,9 @@
-import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage";
+import "./index.css";
 
 import SingleArticle from "./pages/SingleArticle";
 import Articles from "./pages/Articles";
-import "./app.css";
 
 function App() {
   return (
