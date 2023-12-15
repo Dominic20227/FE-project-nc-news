@@ -47,7 +47,7 @@ function ArticleDetail({ singleArticle, setSingleArticle }) {
         <h3>Article detail</h3>
 
         <h4 className="text-xl font-semibold mb-1">{singleArticle.title}</h4>
-        <p className="mb-3">{singleArticle.body}</p>
+        <h3 className="mb-3">{singleArticle.body}</h3>
         <p className="italic mb-1"> {singleArticle.author}</p>
         <p className="mb-3"> {date}</p>
         {err ? <p className="text-red-500">{err}</p> : <p> </p>}
@@ -55,7 +55,10 @@ function ArticleDetail({ singleArticle, setSingleArticle }) {
         <div className="flex items-center gap-2">
           <p>
             Votes: {singleArticle.votes}
-            <button onClick={() => handleUpvote(singleArticle.article_id)}>
+            <button
+              className="ml-[20px] bg-blue-600 rounded-md w-[60px] text-white font-semibold hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 "
+              onClick={() => handleUpvote(singleArticle.article_id)}
+            >
               Upvote
             </button>
           </p>
@@ -72,7 +75,7 @@ function ArticleDetail({ singleArticle, setSingleArticle }) {
       </section>
 
       <section>
-        <Comments comments={comments} />
+        <Comments comments={comments} setComments={setComments} />
       </section>
     </article>
   );

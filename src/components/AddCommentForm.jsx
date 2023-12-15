@@ -52,7 +52,12 @@ function AddCommentForm({ articleId, comments, setComments, setErr }) {
         value={comment}
       />
 
-      <button disabled={btnDisabled}>Post</button>
+      <button
+        className="bg-blue-600 rounded-md w-[50px] text-white font-semibold hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300"
+        disabled={btnDisabled}
+      >
+        Post
+      </button>
     </form>
   );
 }

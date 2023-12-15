@@ -23,44 +23,35 @@ function Comments({ comments, setComments, setErr }) {
   }
 
   return (
-    <ul className="space-y-4">
+    <ul className="mt-4">
       {comments.map((comment) => {
-        const date = String(dayjs(comment.created_at).$d);
+        const date = dayjs(comment.created_at).format("MMMM D, YYYY");
         return (
           <li
-            className={`p-4 border border-gray-300 rounded-lg ${
-              comment.comment_id === "newComment" ? "bg-blue-100" : "bg-white"
-            }`}
+            className="mb-3 border-b border-gray-300 pb-2"
             key={comment.comment_id}
           >
-            {comment.comment_id === commentIdErr ? ( //err will show up at specific comment box
-              <p className="text-red-500">
-                There has been a problem. Please refresh the page and try again
+            {comment.comment_id === commentIdErr && (
+              <p className="text-red-500 text-xs">
+                Error. Please refresh the page and try again.
               </p>
-            ) : (
-              ""
             )}
 
-            <p className="mb-2"> {comment.body}</p>
-
-            <div className="flex justify-between items-center">
-              <p>
-                {comment.author}
-                {comment.author === "jessjelly" ? (
-                  <button
-                    disabled={btnDisabled}
-                    onClick={() =>
-                      handleDeleteButton(comment.comment_id, comment.article_id)
-                    }
-                    className="text-red-500 hover:text-red-700 disabled:opacity-50"
-                  >
-                    ❌
-                  </button>
-                ) : (
-                  ""
-                )}
-              </p>
-              <p> {date}</p>
+            <p className="text-sm">{comment.body}</p>
+            <div className="flex justify-between items-center text-xs mt-2">
+              <span>{comment.author}</span>
+              <span>{date}</span>
+              {comment.author === "jessjelly" && (
+                <button
+                  disabled={btnDisabled}
+                  onClick={() =>
+                    handleDeleteButton(comment.comment_id, comment.article_id)
+                  }
+                  className="text-red-500 disabled:opacity-50 ml-2"
+                >
+                  Delete
+                </button>
+              )}
             </div>
           </li>
         );
