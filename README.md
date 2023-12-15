@@ -1,8 +1,16 @@
-# React + Vite
+**LINK TO DEPLOYED VERSION**
+https://sensational-douhua-4229c5.netlify.app/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**GENERAL INFO**
+This is a front end web application that retrieves articles from a server.
 
-Currently, two official plugins are available:
+You can search through all articles, or filter articles by topic.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+You can upvote an articles, post a comment on a spefific article and delete a comment.
+
+**MINIMUM VERSION OF NODE REQUIRED TO RUN LOCALLY**
+V18.13.0
+
+**HOW TO RUN PROJECT LOCALLY**
+
+git clone -
