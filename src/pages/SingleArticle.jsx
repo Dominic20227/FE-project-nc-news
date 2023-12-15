@@ -23,7 +23,9 @@ function SingleArticle() {
   return (
     <article className="container mx-auto p-4">
       <Navbar />
-      <h2 className="text-4xl font-bold text-center my-6">Single Article</h2>
+      <h2 className="text-2xl font-bold text-center my-6">
+        {singleArticle.title}
+      </h2>
 
       <ul>
         <ArticleDetail

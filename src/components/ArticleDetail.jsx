@@ -44,9 +44,6 @@ function ArticleDetail({ singleArticle, setSingleArticle }) {
   return (
     <article className="p-6 bg-white shadow-lg rounded-lg">
       <section>
-        <h3>Article detail</h3>
-
-        <h4 className="text-xl font-semibold mb-1">{singleArticle.title}</h4>
         <h3 className="mb-3">{singleArticle.body}</h3>
         <p className="italic mb-1"> {singleArticle.author}</p>
         <p className="mb-3"> {date}</p>
