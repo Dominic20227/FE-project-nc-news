@@ -1,5 +1,5 @@
 **LINK TO DEPLOYED VERSION**
-https://sensational-douhua-4229c5.netlify.app/
+[https://sensational-douhua-4229c5.netlify.app/](https://lustrous-smakager-5efab3.netlify.app/)
 
 **GENERAL INFO**
 This is a front end web application that retrieves articles from a server.
